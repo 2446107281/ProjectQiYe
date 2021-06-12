@@ -4,10 +4,12 @@ import edu.ncst.dao.PublisherDAO;
 import edu.ncst.entity.Publishers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class PublisherService {
     @Autowired//自动注入项目中的PublisherDAO
     private PublisherDAO publisherDAO;

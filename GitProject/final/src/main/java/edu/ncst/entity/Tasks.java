@@ -6,10 +6,16 @@ import java.io.PrintWriter;
 @Entity
 @Table(name="task_table")
 public class Tasks {
+    @Id    //主键
+    @GeneratedValue(strategy = GenerationType.AUTO)  //自动递增
     private Integer task_id;//任务id
+
     private String taskProfile;//任务概要
+
     private String taskConten;//任务内容
+
     private Integer taskCost;//任务金额
+
     private Integer taskState;//任务状态
 
     public Integer getTask_id() {
