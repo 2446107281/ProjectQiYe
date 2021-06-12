@@ -3,26 +3,26 @@ package edu.ncst.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="publisher_table")
-public class Publishers {
+@Table(name="manager_table")
+public class Managers {
     @Id    //主键
     @GeneratedValue(strategy = GenerationType.AUTO)  //自动递增
-    private Integer publisher_id;     //发布者id
+    private Integer manager_id;     //管理者id
 
-    private String publicName;     //发布者用户名
+    private String publicName;     //管理者用户名
 
-    private Integer userName;     //发布者账号
+    private Integer userName;     //管理者账号
 
-    private String password;     //发布者密码
+    private String password;     //管理者密码
 
-    private String contact;//发布者联系方式
+    private String contact;//管理者联系方式
 
-    public Integer getPublisher_id() {
-        return publisher_id;
+    public Integer getManager_id() {
+        return manager_id;
     }
 
-    public void setPublisher_id(Integer publisher_id) {
-        this.publisher_id = publisher_id;
+    public void setManager_id(Integer manager_id) {
+        this.manager_id = manager_id;
     }
 
     public String getPublicName() {

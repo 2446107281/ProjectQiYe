@@ -27,19 +27,19 @@ public class PublisherController {
         return "publisher_index";//返回网页
     }
 
-//    @RequestMapping(value = "/edit" ,method = RequestMethod.GET)
-//    public  String edit(Integer id, Model model)
-//    {
-//        if (id == null){
-//            Publishers publisher = new Publishers();
-//            model.addAttribute("entity",publisher);
-//        }
-//        else{
-//            Publishers publisher = publisherService.findone(id);
-//            model.addAttribute("entity",publisher);
-//        }
-//        return "publisher_edit";
-//    }
+    @RequestMapping(value = "/edit" ,method = RequestMethod.GET)
+    public  String edit(Integer id, Model model)
+    {
+        if (id == null){
+            Publishers publisher = new Publishers();
+            model.addAttribute("entity",publisher);
+        }
+        else{
+            Publishers publisher = publisherService.findone(id);
+            model.addAttribute("entity",publisher);
+        }
+        return "publisher_edit";
+    }
     @RequestMapping(value = "/edit" ,method = RequestMethod.POST)
     public  String editSave(Publishers publisher, Model model)
     {
@@ -49,19 +49,19 @@ public class PublisherController {
         return "publisher_index";
     }
 
-//    @RequestMapping(value = "/login",method = RequestMethod.GET)
-//    public String login()
-//    {
-//        return "login";
-//    }
-//    @RequestMapping(value = "/login",method = RequestMethod.POST)
-//    public String login(Publishers publisher, HttpSession session)
-//    {
-//        Publishers c = publisherService.login(publisher.getUseraccount(),publisher.getPassword());
-//        if (c!=null){
-//            session.setAttribute("publisher",c);
-//            return "product_index";
-//        }
-//        return "login";
-//    }
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String login()
+    {
+        return "login";
+    }
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public String login(Publishers publisher, HttpSession session)
+    {
+        Publishers c = publisherService.login(publisher.getUserName(),publisher.getPassword());
+        if (c!=null){
+            session.setAttribute("publisher",c);
+            return "product_index";
+        }
+        return "login";
+    }
 }

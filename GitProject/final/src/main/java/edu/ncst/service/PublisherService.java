@@ -30,13 +30,13 @@ public class PublisherService {
     public void delete (Integer id){  publisherDAO.delete(id);  }
 
 
-//    public Publishers login(Integer Useraccount,String Password)
-//    {
-//        List<Publishers> publishers = publisherDAO.findByUserAccountAndPassword(Useraccount,Password);
-//        if (publishers.size()>0)
-//        {
-//            return publishers.get(0);
-//        }
-//        return null;
-//    }
+    public Publishers login(Integer userName,String password)
+    {
+        List<Publishers> publishers = publisherDAO.findByUserNameAndPassword(userName,password);
+        if (publishers.size()>0)
+        {
+            return publishers.get(0);
+        }
+        return null;
+    }
 }
