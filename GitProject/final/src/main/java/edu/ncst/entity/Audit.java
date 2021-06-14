@@ -11,7 +11,6 @@ public class Audit {
 
     private Integer manager_id;     //管理者id
 
-    private Integer taskPublicState;  //任务发布状态
 
     public Integer getTask_id() {
         return task_id;
@@ -29,11 +28,5 @@ public class Audit {
         this.manager_id = manager_id;
     }
 
-    public Integer getTaskPublicState() {
-        return taskPublicState;
-    }
 
-    public void setTaskPublicState(Integer taskPublicState) {
-        this.taskPublicState = taskPublicState;
-    }
 }

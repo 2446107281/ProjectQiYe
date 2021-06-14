@@ -1,7 +1,9 @@
 package edu.ncst.controller;
 
 import edu.ncst.entity.Publishers;
+import edu.ncst.entity.Tasks;
 import edu.ncst.service.PublisherService;
+import edu.ncst.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.util.List;
 @RequestMapping("/publisher")
 public class PublisherController {
 
+    @Autowired
+    private TaskService taskService;
     @Autowired
     private PublisherService publisherService;
     //注入PublisherService
@@ -44,10 +48,11 @@ public class PublisherController {
     public  String editSave(Publishers publisher, Model model)
     {
         publisherService.save(publisher);
-        List<Publishers> publishers = publisherService.findAll();//调用业务层
-        model.addAttribute("publishers",publishers);//传递数据
-        return "publisher_index";
+        model.addAttribute("entity",publisher);
+        return "publisher_edit";
     }
+
+
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login()
@@ -55,12 +60,13 @@ public class PublisherController {
         return "login";
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(Publishers publisher, HttpSession session)
+    public String login(Publishers publisher, HttpSession session,Model model)
     {
         Publishers c = publisherService.login(publisher.getUserName(),publisher.getPassword());
         if (c!=null){
             session.setAttribute("publisher",c);
-            return "product_index";
+            model.addAttribute("entity",c);
+            return "publisher_edit";
         }
         return "login";
     }

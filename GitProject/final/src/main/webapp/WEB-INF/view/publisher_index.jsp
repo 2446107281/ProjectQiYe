@@ -31,7 +31,6 @@
              <td style="border: 1px solid black" cellspacing="1"><a href="/publisher/delete?id=${publishers.publisher_id}" >删除</a></td>
          </tr>
      </c:forEach>
- <tr><td><a href="/publisher/edit">注册</a></td></tr>
 </table>
 </body>
 </html>

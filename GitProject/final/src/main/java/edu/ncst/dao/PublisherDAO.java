@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface PublisherDAO extends JpaRepository<Publishers,Integer>
 {
+
     public List<Publishers> findByUserNameAndPassword(Integer userName, String password);
 }

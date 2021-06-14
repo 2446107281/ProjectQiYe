@@ -21,8 +21,8 @@ public class DealService {
         return deals;
     }
 
-    public void save(Deal deals){
-        dealDAO.save(deals);
+    public void save(Deal deal){
+        dealDAO.save(deal);
     }
 
     public Deal findone (Integer id){

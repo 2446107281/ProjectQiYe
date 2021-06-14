@@ -7,9 +7,19 @@ import javax.persistence.*;
 public class Deal {
     @Id    //主键
     @GeneratedValue(strategy = GenerationType.AUTO)  //自动递增
+    private Integer deal_id;//id
+
     private Integer task_id;//任务id
 
-    private Integer runner_id;     //跑腿小哥id
+    private Integer runner_id;//跑腿小哥id
+
+    public Integer getDeal_id() {
+        return deal_id;
+    }
+
+    public void setDeal_id(Integer deal_id) {
+        this.deal_id = deal_id;
+    }
 
     public Integer getTask_id() {
         return task_id;
