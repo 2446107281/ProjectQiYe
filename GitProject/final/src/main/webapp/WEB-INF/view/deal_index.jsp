@@ -23,8 +23,6 @@
          <tr>
              <td style="border: 1px solid black" cellspacing="1">${deal.task_id}</td>
              <td style="border: 1px solid black" cellspacing="1">${deal.runner_id}</td>
-             <td style="border: 1px solid black" cellspacing="1"><a href="/publisher/edit?id=${publishers.publisher_id}" >编辑</a></td>
-             <td style="border: 1px solid black" cellspacing="1"><a href="/publisher/delete?id=${publishers.publisher_id}" >删除</a></td>
          </tr>
      </c:forEach>
 </table>

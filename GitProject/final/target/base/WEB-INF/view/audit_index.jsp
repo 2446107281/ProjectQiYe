@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ？？？
-  Date: 2021/6/8
-  Time: 15:28
+  Date: 2021/6/14
+  Time: 19:55
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,15 +16,14 @@
     <caption align="top">用户信息</caption>
     <tr>
         <td style="border: 1px solid black" cellspacing="1">任务id</td>
-        <td style="border: 1px solid black" cellspacing="1">跑腿小哥id</td>
+        <td style="border: 1px solid black" cellspacing="1">审核者id</td>
 
-        </tr>
-    <c:forEach items="${deals}" var="deal">
-         <tr>
-             <td style="border: 1px solid black" cellspacing="1">${deal.task_id}</td>
-             <td style="border: 1px solid black" cellspacing="1">${deal.runner_id}</td>
-         </tr>
-     </c:forEach>
-</table>
+    </tr>
+    <c:forEach items="${audits}" var="audit">
+    <tr>
+        <td style="border: 1px solid black" cellspacing="1">${audit.task_id}</td>
+        <td style="border: 1px solid black" cellspacing="1">${audit.manager_id}</td>
+    </tr>
+    </c:forEach>
 </body>
 </html>

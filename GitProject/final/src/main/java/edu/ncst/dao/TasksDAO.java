@@ -46,9 +46,10 @@ public interface TasksDAO extends JpaRepository<Tasks,Integer>
 
     //未审核的任务
     @Query(value = "" +
-            "select distinct task_table.* " +
-            "from task_table " +
-            "where task_table.taskPublicState=null " ,
+            "select  distinct  task_table.* " +
+            " from task_table " +
+            " where  task_id  not in " +
+            "(select task_id from audit_table ) " ,
             nativeQuery = true)
     public List<Tasks> findUnauditTasks();
 
@@ -59,4 +60,11 @@ public interface TasksDAO extends JpaRepository<Tasks,Integer>
             "where task_id=?"  ,
             nativeQuery = true)
     public void alterTaskState (Integer task_id);
+    //任务审核修改任务发布状态
+    @Query(value = "" +
+            "update task_table" +
+            " set taskPublicState=? " +
+            "where task_id=?"  ,
+            nativeQuery = true)
+    public void alterTaskPublicState ( Integer taskPublicState,Integer task_id);
 }

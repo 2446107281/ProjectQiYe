@@ -42,6 +42,7 @@ public class DealControl {
     @RequestMapping(value = "/accept",method = RequestMethod.POST)
     public String editsave(Deal deal ,Model model){
         dealService.save(deal);
+        taskService.updateState(deal.getTask_id());
         List<Tasks> tasks = taskService.findTasksByRunner_id(deal.getRunner_id());//调用业务层
         model.addAttribute("tasks",tasks);//传递数据
         return "runnertask";//返回网页

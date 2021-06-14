@@ -19,6 +19,6 @@
     <p>联系方式<input type="text" name="contact" value=${entity.contact}></p>
     <p><input type="submit" name="submit" value="submit"></p>
 </form>
-<a href="">待审核任务</a>
+<a href="/task/audit">待审核任务</a>
 </body>
 </html>

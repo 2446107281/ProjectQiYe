@@ -67,7 +67,7 @@ public class TaskController {
         model.addAttribute("tasks",tasks);//传递数据
         return "taskhall_publisher";
     }
-    //传给taskhall_publisher显示发布者发布任务后所有发布者发布的任务
+    //传给taskhall_manager显示未审核的任务
     @RequestMapping(value = "/audit" ,method = RequestMethod.GET)
     public  String audit( Model model)
     {
@@ -75,4 +75,5 @@ public class TaskController {
         model.addAttribute("tasks",tasks);//传递数据
         return "taskhall_manager";
     }
+
 }
