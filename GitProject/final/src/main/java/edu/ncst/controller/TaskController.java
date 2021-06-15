@@ -43,6 +43,7 @@ public class TaskController {
     public String runnerindex(Integer runner_id,Model model){
         List<Tasks> tasks = taskService.findTasksByRunner_id(runner_id);//调用业务层
         model.addAttribute("tasks",tasks);//传递数据
+        model.addAttribute("runner_id",runner_id);
         return "runnertask";//返回网页
     }
     //传给publisher_edit显示跑腿小哥完成的任务
@@ -94,9 +95,11 @@ public class TaskController {
     public  String abandon( Integer task_id,Model model)
     {
         Integer runner_id = dealService.findRunner_idBytask_id(task_id);
-        dealService.deleteBytask_id(task_id);
+        Integer deal_id = dealService.findDeal_idBytask_id(task_id);
+        dealService.delete(deal_id);
         List<Tasks> tasks = taskService.findTasksByRunner_id(runner_id);//调用业务层
         model.addAttribute("tasks",tasks);//传递数据
+        model.addAttribute("runner_id",runner_id);
         return "runnertask";//返回网页
     }
 }

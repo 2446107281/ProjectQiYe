@@ -56,7 +56,7 @@ public class TaskService {
         return tasks;
     }
     //修改任务状态
-    public void updateState (Integer task_id){tasksDAO.alterTaskState(task_id);}
+    public void updateStateByaccept (Integer task_id){tasksDAO.alterTaskStateByaccept(task_id);}
     //修改任务状态
     public void updatePublicState (Integer taskPublicState,Integer task_id){tasksDAO.alterTaskPublicState(taskPublicState,task_id);}
     //删除任务

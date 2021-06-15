@@ -53,13 +53,13 @@ public interface TasksDAO extends JpaRepository<Tasks,Integer>
             nativeQuery = true)
     public List<Tasks> findUnauditTasks();
 
-    //任务完成修改任务状态
+    //任务接受修改任务状态
     @Query(value = "" +
             "update task_table" +
-            " set taskState=3 " +
+            " set taskState=2 " +
             "where task_id=?"  ,
             nativeQuery = true)
-    public void alterTaskState (Integer task_id);
+    public void alterTaskStateByaccept (Integer task_id);
     //任务审核修改任务发布状态
     @Query(value = "" +
             "update task_table" +

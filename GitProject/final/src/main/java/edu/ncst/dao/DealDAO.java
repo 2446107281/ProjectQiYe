@@ -16,8 +16,10 @@ public interface DealDAO extends JpaRepository<Deal,Integer>{
     public Integer findRunner_idBytask_id(Integer task_id);
 
     @Query(value = "" +
-            "delete from deal_table" +
-            " where task_id=?" ,
+            "select distinct deal_id " +
+            "from deal_table " +
+            "where task_id=?" ,
             nativeQuery = true)
-    public Integer deleteBytask_id(Integer task_id);
+    public Integer findDeal_idBytask_id(Integer task_id);
+
 }

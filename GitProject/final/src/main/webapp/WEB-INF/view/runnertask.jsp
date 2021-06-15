@@ -28,7 +28,7 @@
             <td style="border: 1px solid black" cellspacing="1">${task.taskContent}</td>
             <td style="border: 1px solid black" cellspacing="1">${task.taskCost}</td>
             <td style="border: 1px solid black" cellspacing="1">${task.taskState}</td>
-            <td><a href="/task/finish?task_id=${task.task_id}">任务完成</a> </td>
+            <td><a href="/task/abandon?task_id=${task.task_id}">放弃任务</a> </td>
         </tr>
     </c:forEach>
 </table>
