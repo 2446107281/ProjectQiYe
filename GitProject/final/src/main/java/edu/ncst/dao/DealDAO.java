@@ -7,5 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping
 public interface DealDAO extends JpaRepository<Deal,Integer>{
+    //通过任务id找到小哥id
+    @Query(value = "" +
+            "select distinct runner_id " +
+            "from deal_table " +
+            "where task_id=?" ,
+            nativeQuery = true)
+    public Integer findRunner_idBytask_id(Integer task_id);
 
+    @Query(value = "" +
+            "delete from deal_table" +
+            " where task_id=?" ,
+            nativeQuery = true)
+    public Integer deleteBytask_id(Integer task_id);
 }

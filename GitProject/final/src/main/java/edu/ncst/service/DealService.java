@@ -30,4 +30,8 @@ public class DealService {
     }
 
     public void delete (Integer id){  dealDAO.delete(id);  }
+
+    public void deleteBytask_id (Integer task_id){  dealDAO.deleteBytask_id(task_id);  }
+
+    public Integer findRunner_idBytask_id(Integer task_id){return dealDAO.findRunner_idBytask_id(task_id);}
 }

@@ -30,6 +30,7 @@
             <td style="border: 1px solid black" cellspacing="1">${task.taskCost}</td>
             <td style="border: 1px solid black" cellspacing="1">${task.taskState}</td>
             <td style="border: 1px solid black" cellspacing="1">${task.taskPublicState}</td>
+            <td ><a href="/task/delete?task_id=${task.taskPublicState}">删除</a> </td>
         </tr>
     </c:forEach>
 </table>

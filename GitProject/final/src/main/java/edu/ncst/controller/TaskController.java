@@ -1,6 +1,7 @@
 package edu.ncst.controller;
 
 import edu.ncst.entity.Tasks;
+import edu.ncst.service.DealService;
 import edu.ncst.service.TaskService;
 import javafx.concurrent.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
     //注入TaskService
+
+    @Autowired
+    private DealService dealService;
     //传给taskhall_publisher显示发布者的发布的任务
     @RequestMapping(value = "",method = RequestMethod.GET)
     public String index( Integer publisher_id,Model model){
@@ -75,5 +79,24 @@ public class TaskController {
         model.addAttribute("tasks",tasks);//传递数据
         return "taskhall_manager";
     }
-
+    //删除任务
+    @RequestMapping(value = "/delete" ,method = RequestMethod.GET)
+    public  String delete( Integer task_id,Model model)
+    {
+        Integer publisher_id = taskService.findone(task_id).getPublisher_id();
+        taskService.delete(task_id);
+        List<Tasks> tasks = taskService.findTasksByPublisher_id(publisher_id);//调用业务层
+        model.addAttribute("tasks",tasks);//传递数据
+        return "taskhall_publisher";
+    }
+    //放弃任务
+    @RequestMapping(value = "/abandon" ,method = RequestMethod.GET)
+    public  String abandon( Integer task_id,Model model)
+    {
+        Integer runner_id = dealService.findRunner_idBytask_id(task_id);
+        dealService.deleteBytask_id(task_id);
+        List<Tasks> tasks = taskService.findTasksByRunner_id(runner_id);//调用业务层
+        model.addAttribute("tasks",tasks);//传递数据
+        return "runnertask";//返回网页
+    }
 }
